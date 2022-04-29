@@ -1,0 +1,36 @@
+name: Python Script in Actions
+
+on: push
+
+jobs:
+
+  python3runner:
+    runs-on: windows-latest
+
+    steps:
+
+          
+      - name: Install Python 3
+
+        run: |
+         choco uninstall python3 --no-progress
+         choco install python3 --no-progress
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ env.OWNER }}/${{ env.REPO }}
+          
+        env:
+          REPO: python-action
+          OWNER: Tyler887
+
+      - name: Run Python action
+        run: |  
+           cd D:\a\${{ env.REPO }}/${{ env.REPO }}
+
+           python workflow.py
+           Exit $LASTEXITCODE
+        env:
+          REPO: python-action
+
+
+        
