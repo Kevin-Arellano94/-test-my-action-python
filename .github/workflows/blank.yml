@@ -20,8 +20,8 @@ jobs:
           repository: ${{ env.OWNER }}/${{ env.REPO }}
           
         env:
-          REPO: python-action
-          OWNER: Tyler887
+          REPO: check-files-action-python
+          OWNER: Kevin-Arellano94
 
       - name: Run Python action
         run: |  
